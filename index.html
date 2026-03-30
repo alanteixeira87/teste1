@@ -6,12 +6,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Gestor de Serviços | QA Suite</title>
     
-    <script src="https://cdn.tailwindcss.com">
-window.addEventListener('hashchange', () => {
-    const tab = location.hash.replace('#', '') || 'chicago';
-    app.switchTab(tab);
-});
-</script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         tailwind.config = {
@@ -30,19 +25,9 @@ window.addEventListener('hashchange', () => {
                 }
             }
         }
-    
-window.addEventListener('hashchange', () => {
-    const tab = location.hash.replace('#', '') || 'chicago';
-    app.switchTab(tab);
-});
-</script>
+    </script>
 
-    <script src="https://unpkg.com/lucide@latest">
-window.addEventListener('hashchange', () => {
-    const tab = location.hash.replace('#', '') || 'chicago';
-    app.switchTab(tab);
-});
-</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -61,6 +46,58 @@ window.addEventListener('hashchange', () => {
         /* Fundo desfocado para o Login */
         .blur-bg { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     </style>
+
+<style>
+body {
+    background: #f9fafb !important;
+    color: #111827 !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* Containers */
+div, section, main, aside, header, footer {
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    background: #ffffff !important;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #111827 !important;
+    font-weight: 600 !important;
+}
+
+/* Text */
+p, span, label {
+    color: #4b5563 !important;
+}
+
+/* Inputs */
+input, textarea, select {
+    background: #f3f4f6 !important;
+    border: 1px solid #d1d5db !important;
+    color: #111827 !important;
+}
+
+/* Buttons */
+button {
+    background: #e5e7eb !important;
+    color: #111827 !important;
+    border: 1px solid #9ca3af !important;
+}
+
+/* Links */
+a {
+    color: #374151 !important;
+    text-decoration: underline;
+}
+
+/* Remove shadows and colors */
+* {
+    box-shadow: none !important;
+    background-image: none !important;
+}
+</style>
+
 </head>
 <body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-gray-100 h-screen flex overflow-hidden transition-colors duration-300 selection:bg-primary-500 selection:text-white">
 
@@ -96,18 +133,18 @@ window.addEventListener('hashchange', () => {
 
         <nav class="flex-1 px-6 space-y-2 overflow-y-auto custom-scrollbar">
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 mt-4 px-4">Testes FVP</div>
-            <button onclick="app.navigate('nomenclatura')" id="nav-nomenclatura" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
+            <button onclick="app.switchTab('nomenclatura')" id="nav-nomenclatura" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
                 <i data-lucide="file-signature" size="20"></i> Nomenclatura
             </button>
-            <button onclick="app.navigate('agendamentos')" id="nav-agendamentos" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
+            <button onclick="app.switchTab('agendamentos')" id="nav-agendamentos" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
                 <i data-lucide="calendar-clock" size="20"></i> Agendamentos
             </button>
-            <button onclick="app.navigate('relatorios')" id="nav-relatorios" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
+            <button onclick="app.switchTab('relatorios')" id="nav-relatorios" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
                 <i data-lucide="clipboard-list" size="20"></i> Relatórios
             </button>
 
             <div class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 mt-8 px-4">Testes API</div>
-            <button onclick="app.navigate('chicago')" id="nav-chicago" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
+            <button onclick="app.switchTab('chicago')" id="nav-chicago" class="group w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200">
                 <i data-lucide="braces" size="20"></i> Gerador de JSON
             </button>
 
@@ -148,7 +185,7 @@ window.addEventListener('hashchange', () => {
             </div>
         </div>
 
-        <div id="view-nomenclatura" data-page="nomenclatura" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
+        <div id="view-nomenclatura" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden ring-1 ring-black/5">
                 <div class="px-8 py-5 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center bg-gray-50/50 dark:bg-slate-800">
                     <div><h2 class="text-lg font-bold text-gray-900 dark:text-white">Gerador de Nomenclatura</h2><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Padronização de logs de execução.</p></div>
@@ -174,7 +211,7 @@ window.addEventListener('hashchange', () => {
             </div>
         </div>
 
-        <div id="view-agendamentos" data-page="agendamentos" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
+        <div id="view-agendamentos" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden ring-1 ring-black/5">
                 <div class="px-8 py-5 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center bg-gray-50/50 dark:bg-slate-800">
                     <div><h2 class="text-lg font-bold text-gray-900 dark:text-white">Novo Agendamento</h2><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Planejamento de testes de longa duração.</p></div>
@@ -201,7 +238,7 @@ window.addEventListener('hashchange', () => {
             </div>
         </div>
 
-        <div id="view-relatorios" data-page="relatorios" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
+        <div id="view-relatorios" class="hidden fade-in space-y-8 max-w-6xl mx-auto">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden ring-1 ring-black/5">
                 <div class="px-8 py-5 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800"><div><h2 class="text-lg font-bold text-gray-900 dark:text-white">Gerador de Relatórios</h2><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Padronização de resultados (NOK / OK).</p></div></div>
                 <div class="p-8 grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -218,7 +255,7 @@ window.addEventListener('hashchange', () => {
             </div>
         </div>
 
-        <div id="view-chicago" data-page="chicago" class="hidden fade-in space-y-8 max-w-7xl mx-auto">
+        <div id="view-chicago" class="hidden fade-in space-y-8 max-w-7xl mx-auto">
             
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center gap-4">
@@ -387,10 +424,6 @@ window.addEventListener('hashchange', () => {
         };
 
         const app = {
-
-            navigate: function(tabName) {
-                window.location.hash = tabName;
-            },
             init: function() {
                 this.verifyAuthStatus();
                 this.populateLists();
@@ -407,8 +440,7 @@ window.addEventListener('hashchange', () => {
                     document.documentElement.classList.remove('dark');
                 }
 
-                const tab = location.hash.replace('#', '') || 'chicago';
-                this.switchTab(tab); 
+                this.switchTab('chicago'); 
                 chicago.loadSession(); 
             },
 
@@ -1038,11 +1070,6 @@ window.addEventListener('hashchange', () => {
 
         // INICIALIZAR SISTEMA GERAL
         document.addEventListener('DOMContentLoaded', () => app.init());
-    
-window.addEventListener('hashchange', () => {
-    const tab = location.hash.replace('#', '') || 'chicago';
-    app.switchTab(tab);
-});
-</script>
+    </script>
 </body>
 </html>
